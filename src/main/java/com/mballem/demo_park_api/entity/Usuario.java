@@ -1,4 +1,4 @@
-package com.mballem.demo_park_api.config.entity;
+package com.mballem.demo_park_api.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,13 +9,14 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "username", nullable = false, unique = true, length = 100)
@@ -39,7 +40,6 @@ public class Usuario implements Serializable {
 
     @Column(name = "modificado_por")
     private String modificadoPor;
-
 
     public enum Role{
         ROLE_ADMIN, ROLE_CLIENTE
