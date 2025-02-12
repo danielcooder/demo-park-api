@@ -28,4 +28,15 @@ public class UsuarioController {
          Usuario user = usuarioService.salvar(usuario);
          return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
+
+
+    ///feito após o ultimo commit
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getById(@PathVariable Long id){
+        Usuario user = usuarioService.buscarPorId(id);
+        return ResponseEntity.ok(user);
+    }
+
 }
+
+
