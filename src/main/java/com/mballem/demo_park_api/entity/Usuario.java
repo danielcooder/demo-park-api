@@ -16,7 +16,7 @@ import java.util.Objects;
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "username", nullable = false, unique = true, length = 100)

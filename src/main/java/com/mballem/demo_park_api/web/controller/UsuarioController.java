@@ -1,5 +1,4 @@
 package com.mballem.demo_park_api.web.controller;
-
 import com.mballem.demo_park_api.entity.Usuario;
 import com.mballem.demo_park_api.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -29,11 +28,15 @@ public class UsuarioController {
          return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
-
-    ///feito após o ultimo commit
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getById(@PathVariable Long id){
         Usuario user = usuarioService.buscarPorId(id);
+        return ResponseEntity.ok(user);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Usuario> updatePassword(@PathVariable Long id, @RequestBody Usuario usuario){
+        Usuario user = usuarioService.editarSenha(id, usuario.getPassword());
         return ResponseEntity.ok(user);
     }
 

@@ -25,23 +25,17 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-
-    /*feito apos o ultimo commit
-    @Transactional(readOnly = true)
-    public Usuario buscarPorId(Long id){
-        return usuarioRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Usuario não encontrado.")
-
-        );
-    }*/
-
     @Transactional(readOnly = true)
     public Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado com o ID: " + id));
     }
 
-
-
+    @Transactional
+    public Usuario editarSenha(Long id, String password) {
+        Usuario user = buscarPorId(id);
+        user.setPassword(password);
+        return user;
+    }
 
 }
