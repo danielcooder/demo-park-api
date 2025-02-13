@@ -5,8 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
-
-
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -45,6 +43,5 @@ public class UsuarioService {
         user.setPassword(novaSenha);
         return user;
     }
-
 
 }
