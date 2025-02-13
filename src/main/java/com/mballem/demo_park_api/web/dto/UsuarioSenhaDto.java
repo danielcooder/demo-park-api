@@ -1,5 +1,4 @@
 package com.mballem.demo_park_api.web.dto;
-
 import lombok.*;
 
 @Getter
@@ -7,8 +6,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class UsuarioCreateDto {
+public class UsuarioSenhaDto {
 
-    private String username;
-    private String password;
+    private String senhaAtual;
+    private String novaSenha;
+    private String confirmaSenha;
+
 }
