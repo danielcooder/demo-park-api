@@ -1,5 +1,6 @@
 package com.mballem.demo_park_api.web.exception;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,7 @@ import java.util.Map;
         private int status;
         private String statusText;
         private String message;
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         private Map<String, String> erros;
 
     public ErrorMessage() {
