@@ -1,5 +1,6 @@
 package com.mballem.demo_park_api.service;
 import com.mballem.demo_park_api.entity.Usuario;
+import com.mballem.demo_park_api.exception.EntityNotFoundException;
 import com.mballem.demo_park_api.exception.UsernameUniqueViolationException;
 import com.mballem.demo_park_api.repository.UsuarioRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +25,7 @@ public class UsuarioService {
     @Transactional(readOnly = true)
     public Usuario buscarPorId(Long id) {
         return usuarioRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Usuário não encontrado.")
+                () -> new EntityNotFoundException("Usuário não encontrado.")
         );
     }
 
